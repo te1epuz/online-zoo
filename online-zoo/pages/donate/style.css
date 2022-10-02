@@ -356,44 +356,38 @@ html {
   box-sizing: border-box;
 }
 
-.header_wrapper {
-  background-color: #000000;
+.header__navigation_tablet {
+  display: none;
 }
 
 .header {
+  background-color: #000000;
+  padding: 0 30px;
+  position: relative;
+  z-index: 10;
+}
+
+.header__wrapper {
   max-width: 1160px;
   height: 80px;
   margin: auto;
 }
 
-.navigation ul {
-  margin: 0;
-  padding: 0;
+.header__navigation {
   display: flex;
-  align-items: center;
-  gap: 58px;
-  list-style: none;
 }
-.navigation ul :last-child {
-  margin-left: auto;
-}
-.navigation ul a {
+.header__navigation .logo {
   text-decoration: none;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 140%;
   color: #FFFFFF;
+  margin-right: 62px;
 }
-.navigation ul a h1 {
+.header__navigation .logo h1 {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 19.0145px;
   line-height: 120%;
   padding-top: 4px;
-  margin-right: 5px;
   text-align: center;
   width: 82px;
   height: 52px;
@@ -403,56 +397,20 @@ html {
   background-position: 9px 24px;
   background-repeat: no-repeat;
 }
-.navigation ul .current_link {
-  color: #FE9013;
-  pointer-events: none;
+.header__navigation ul {
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 58px;
+  list-style: none;
 }
-
-.navigation a:hover {
-  opacity: 70%;
-  transition: 0.3s;
+.header__navigation ul :last-child {
+  margin-left: auto;
 }
-
-.footer_wrapper {
-  background: #111115;
-  height: 443px;
-}
-
-.footer_petstory_online {
-  grid-area: footer_petstory_online;
-}
-
-.footer_subscribe {
-  grid-area: footer_subscribe;
-}
-
-#donate_for_volunteers_btn {
-  grid-area: donate_for_volunteers_btn;
-}
-
-.footer_social {
-  grid-area: footer_social;
-}
-
-.footer_navigation {
-  grid-area: footer_navigation;
-}
-
-.designed_by {
-  grid-area: designed_by;
-}
-
-.footer {
-  margin: auto;
-  max-width: 1160px;
-  padding-top: 23px;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  display: grid;
-  grid-template-areas: "footer_petstory_online . footer_subscribe" "donate_for_volunteers_btn . ." "footer_social footer_navigation designed_by";
-}
-.footer a.footer_petstory_online {
+.header__navigation ul a {
   text-decoration: none;
   font-family: "Roboto";
   font-style: normal;
@@ -461,7 +419,136 @@ html {
   line-height: 140%;
   color: #FFFFFF;
 }
-.footer a.footer_petstory_online p {
+.header__navigation ul .current_link {
+  color: #FE9013;
+  pointer-events: none;
+}
+
+.header__navigation a:hover {
+  opacity: 70%;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    background-color: #111115;
+  }
+  .header__navigation .logo {
+    margin-right: 63px;
+  }
+  .header__navigation ul {
+    gap: 48px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .header__navigation .logo {
+    margin-right: 4%;
+  }
+  .header__navigation ul {
+    gap: 4%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .header {
+    padding: 0 20px;
+    position: fixed;
+    width: 100vw;
+  }
+  .header__wrapper {
+    height: 34px;
+  }
+  .header__navigation {
+    display: none;
+  }
+  .header__navigation_tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__navigation_tablet .header__logo_tablet {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  .header__navigation_tablet .header__logo_tablet h1 {
+    padding-top: 3px;
+    margin: 0;
+    width: 46px;
+    font-size: 12.2899px;
+    background-image: url(../../assets/icons/bamboo_tablet.svg);
+    background-position: 3px 16px;
+    background-repeat: no-repeat;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: center;
+  }
+  .header__navigation_tablet .header__burger_button {
+    width: 18px;
+    height: 15px;
+    background: url(../../assets/icons/burger_menu.svg) no-repeat center;
+  }
+  .header__navigation_tablet :hover {
+    cursor: pointer;
+    opacity: 70%;
+    transition: 0.3s;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 0 10px;
+  }
+}
+.footer {
+  background: #111115;
+  height: 443px;
+}
+
+.footer__petstory_online {
+  grid-area: footer__petstory_online;
+}
+
+.footer__subscribe {
+  grid-area: footer__subscribe;
+}
+
+#donate_for_volunteers_btn {
+  grid-area: donate_for_volunteers_btn;
+}
+
+.footer__social {
+  grid-area: footer__social;
+}
+
+.footer__navigation {
+  grid-area: footer__navigation;
+}
+
+.designed_by {
+  grid-area: designed_by;
+}
+
+.footer__wrapper {
+  margin: auto;
+  max-width: 1160px;
+  padding-top: 23px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "footer__petstory_online . footer__subscribe" "donate_for_volunteers_btn . ." "footer__social footer__navigation designed_by";
+}
+.footer__wrapper a.footer__petstory_online {
+  text-decoration: none;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #FFFFFF;
+}
+.footer__wrapper a.footer__petstory_online p {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -477,15 +564,15 @@ html {
   background-position: 9px 20px;
   background-repeat: no-repeat;
 }
-.footer a.footer_petstory_online :hover {
+.footer__wrapper a.footer__petstory_online :hover {
   opacity: 70%;
   transition: 0.3s;
 }
-.footer .footer_subscribe {
+.footer__wrapper .footer__subscribe {
   margin-top: 18px;
   justify-self: end;
 }
-.footer .footer_subscribe p {
+.footer__wrapper .footer__subscribe p {
   margin: 0;
   margin-bottom: 13px;
   font-family: "Roboto";
@@ -495,7 +582,7 @@ html {
   line-height: 120%;
   color: #FFFFFF;
 }
-.footer .footer_subscribe #input_email {
+.footer__wrapper .footer__subscribe #input_email {
   width: 228px;
   height: 42px;
   padding: 10px;
@@ -511,20 +598,20 @@ html {
   color: #BDBDBD;
   outline: none;
 }
-.footer .footer_subscribe #input_email::-moz-placeholder {
+.footer__wrapper .footer__subscribe #input_email::-moz-placeholder {
   color: #BDBDBD;
 }
-.footer .footer_subscribe #input_email:-ms-input-placeholder {
+.footer__wrapper .footer__subscribe #input_email:-ms-input-placeholder {
   color: #BDBDBD;
 }
-.footer .footer_subscribe #input_email::placeholder {
+.footer__wrapper .footer__subscribe #input_email::placeholder {
   color: #BDBDBD;
 }
-.footer .footer_subscribe #input_email:-webkit-autofill {
+.footer__wrapper .footer__subscribe #input_email:-webkit-autofill {
   background-color: #111115;
   color: #BDBDBD;
 }
-.footer .footer_subscribe #input_submit {
+.footer__wrapper .footer__subscribe #input_submit {
   width: 129px;
   height: 42px;
   background: #F1F3F2;
@@ -537,24 +624,24 @@ html {
   line-height: 140%;
   color: #000000;
 }
-.footer .footer_subscribe #input_submit:hover {
+.footer__wrapper .footer__subscribe #input_submit:hover {
   transform: scale(1.02);
 }
-.footer .footer_subscribe #input_submit:active {
+.footer__wrapper .footer__subscribe #input_submit:active {
   border: 1px solid #4B9200;
   color: #4B9200;
   transform: scale(1);
 }
-.footer .footer_subscribe #input_email:invalid {
+.footer__wrapper .footer__subscribe #input_email:invalid {
   border: 1px solid #D31414;
   color: #D31414;
 }
-.footer .footer_subscribe #input_email:invalid ~ #input_submit {
+.footer__wrapper .footer__subscribe #input_email:invalid ~ #input_submit {
   border: 1px solid #D31414;
   color: #D31414;
 }
-.footer #donate_for_volunteers_btn {
-  margin-top: 35px;
+.footer__wrapper #donate_for_volunteers_btn {
+  margin-top: 36px;
   display: block;
   width: 298px;
   height: 54px;
@@ -572,24 +659,24 @@ html {
   text-transform: uppercase;
   color: #FFFFFF;
 }
-.footer #donate_for_volunteers_btn:hover {
+.footer__wrapper #donate_for_volunteers_btn:hover {
   cursor: pointer;
   background: #E47209;
   transition: 0.3s;
 }
-.footer #donate_for_volunteers_btn:active {
+.footer__wrapper #donate_for_volunteers_btn:active {
   background: #4B9200;
 }
-.footer .footer_social {
+.footer__wrapper .footer__social {
   list-style: none;
   margin-top: 35px;
   margin-bottom: 0;
   padding: 0;
 }
-.footer .footer_social li {
+.footer__wrapper .footer__social li {
   margin-top: 9px;
 }
-.footer .footer_social li a {
+.footer__wrapper .footer__social li a {
   text-decoration: none;
   font-family: "Roboto";
   font-style: normal;
@@ -598,7 +685,7 @@ html {
   line-height: 140%;
   color: #FFFFFF;
 }
-.footer .footer_social li a div {
+.footer__wrapper .footer__social li a div {
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -608,36 +695,33 @@ html {
   align-items: center;
   margin-right: 12px;
 }
-.footer .footer_social li :active {
+.footer__wrapper .footer__social li :active {
   color: #4B9200;
   transition: 0.3s;
 }
-.footer .footer_social li :active div {
+.footer__wrapper .footer__social li :active div {
   background: #4B9200;
   transition: 1s;
 }
-.footer .footer_social li :hover {
+.footer__wrapper .footer__social li :hover {
   opacity: 0.7;
   transition: 0.3s;
 }
-.footer .footer_social li :hover div {
+.footer__wrapper .footer__social li :hover div {
   opacity: 0.7;
   transition: 1s;
 }
-.footer .footer_navigation {
-  margin-bottom: -1px;
-  margin-left: 85px;
+.footer__wrapper .footer__navigation {
   align-self: end;
 }
-.footer .footer_navigation ul {
-  margin: 0;
+.footer__wrapper .footer__navigation ul {
+  margin: 0 32px -1px 101px;
   padding: 0;
   display: flex;
-  align-items: center;
-  gap: 58px;
+  justify-content: space-between;
   list-style: none;
 }
-.footer .footer_navigation ul a {
+.footer__wrapper .footer__navigation ul a {
   text-decoration: none;
   font-family: "Roboto";
   font-style: normal;
@@ -646,15 +730,15 @@ html {
   line-height: 140%;
   color: #FFFFFF;
 }
-.footer .footer_navigation ul .current_link {
+.footer__wrapper .footer__navigation ul .current_link {
   color: #FE9013;
   pointer-events: none;
 }
-.footer .footer_navigation a:hover {
+.footer__wrapper .footer__navigation a:hover {
   opacity: 70%;
   transition: 0.3s;
 }
-.footer .designed_by {
+.footer__wrapper .designed_by {
   margin-bottom: -1px;
   place-self: end end;
   font-family: "Roboto";
@@ -664,11 +748,131 @@ html {
   line-height: 130%;
   color: #bdbdbd;
 }
-.footer .designed_by p {
+.footer__wrapper .designed_by p {
   margin: 0;
   margin-top: 10px;
 }
 
+@media screen and (max-width: 1599px) {
+  .footer {
+    padding: 30px 30px 30px 30px;
+  }
+  .footer__wrapper {
+    padding-top: 0;
+    grid-template-areas: "footer__petstory_online footer__subscribe footer__subscribe" "donate_for_volunteers_btn donate_for_volunteers_btn ." "footer__social footer__navigation designed_by";
+  }
+  .footer__wrapper a.footer__petstory_online p {
+    margin: 11px 0 0 1px;
+  }
+  .footer__wrapper .footer__subscribe {
+    margin: 11px 32px 0 0;
+  }
+  .footer__wrapper .footer__subscribe #input_email {
+    margin-right: 5px;
+  }
+  .footer__wrapper .footer__subscribe #input_submit {
+    margin: 0 1px 0 0;
+  }
+  .footer__wrapper #donate_for_volunteers_btn {
+    margin: 35px 0 0 1px;
+  }
+  .footer__wrapper .footer__navigation ul {
+    margin: 0 77px -1px 193px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .footer {
+    padding: 12px 20px 15px 20px;
+    height: 282px;
+  }
+  .footer__wrapper {
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "footer__petstory_online . footer__social" "donate_for_volunteers_btn donate_for_volunteers_btn footer__social" "footer__navigation footer__navigation designed_by";
+  }
+  .footer__wrapper a.footer__petstory_online p {
+    margin: 1px 0 0 1px;
+  }
+  .footer__wrapper .footer__subscribe {
+    display: none;
+  }
+  .footer__wrapper .footer__social {
+    margin-top: 0;
+  }
+  .footer__wrapper .footer__social li {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 0 19px auto;
+  }
+  .footer__wrapper .footer__social li a div {
+    margin-right: 0;
+  }
+  .footer__wrapper .footer__social li a span {
+    display: none;
+  }
+  .footer__wrapper #donate_for_volunteers_btn {
+    margin: 32px 0 0 0px;
+  }
+  .footer__wrapper .footer__navigation ul {
+    margin: 0 74px 1px 1px;
+  }
+  .footer__wrapper .designed_by {
+    margin: 14px 1px 0 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer {
+    padding: 14px 10px 20px 10px;
+    height: auto;
+  }
+  .footer__wrapper {
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: auto;
+    grid-template-areas: "footer__petstory_online" "footer__social" "donate_for_volunteers_btn" "designed_by" "footer__navigation";
+  }
+  .footer__wrapper a.footer__petstory_online {
+    padding: 0;
+    margin-bottom: 29px;
+  }
+  .footer__wrapper a.footer__petstory_online p {
+    display: flex;
+    margin: 0 auto;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: 30px;
+    align-items: flex-end;
+    border: none;
+    background-image: url(../../assets/icons/bamboo.svg);
+    background-position: 72px 3px;
+  }
+  .footer__wrapper .footer__social {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 23px 28px 23px;
+  }
+  .footer__wrapper .footer__social li {
+    margin: 0;
+  }
+  .footer__wrapper #donate_for_volunteers_btn {
+    padding-top: 2px;
+    padding-left: 2px;
+    margin: 0 auto 18px auto;
+    max-width: 298px;
+    width: 100%;
+  }
+  .footer__wrapper .footer__navigation ul {
+    justify-content: space-between;
+    margin: 0 11px 0px 11px;
+  }
+  .footer__wrapper .designed_by {
+    margin: 0px 0px 28px 0px;
+    font-size: 15px;
+  }
+  .footer__wrapper .designed_by p {
+    margin-top: 12px;
+  }
+}
 .panda_header {
   height: 386px;
   background-image: url(../../assets/images/donate_panda_bg.jpg);
@@ -783,17 +987,6 @@ html {
 .main_donate .pick_and_feed .food_per_animal img:nth-child(3) {
   margin-right: 14px;
 }
-.main_donate .pick_and_feed p.share {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 140%;
-  color: #333B41;
-  text-align: center;
-  margin-left: 5px;
-  margin-bottom: 0;
-}
 
 .form_amount {
   position: relative;
@@ -801,7 +994,7 @@ html {
 
 p.amount {
   margin-left: 4px;
-  margin-bottom: 17px;
+  margin-bottom: 15px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -845,15 +1038,13 @@ p.amount {
   font-weight: 800;
 }
 
-.radio_block::after {
-  content: "";
-  display: block;
-  width: 94%;
+.radio_block_line {
+  position: relative;
+  z-index: 1;
+  top: 14px;
   height: 2px;
-  background: #72828E;
-  top: 13px;
-  left: 2.9%;
-  position: absolute;
+  background-color: #72828E;
+  margin: 0 30px 0 26px;
 }
 
 .radio_block div label:hover {
@@ -871,7 +1062,6 @@ input.radio_amount {
   border-radius: 50%;
   background: #FFEE2E;
   z-index: 1;
-  display: grid;
 }
 
 input.radio_amount::before {
@@ -1065,4 +1255,276 @@ input.radio_period:active {
 
 #feed_btn:active {
   background: #4B9200;
+}
+
+p.share {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
+  text-align: center;
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1599px) {
+  .main_donate {
+    padding: 41px 30px 30px 30px;
+  }
+  .main_donate h2 {
+    margin: 0 92px 28px 0;
+    text-align: left;
+  }
+  .main_donate h3 {
+    margin-bottom: 39px;
+  }
+  .main_donate .pick_and_feed {
+    padding: 20px 30px 45px 30px;
+  }
+  .main_donate .pick_and_feed h2 {
+    margin: 0px 15px 11px 0px;
+  }
+  .main_donate .pick_and_feed h3 {
+    margin: 0px 0px 59px 17px;
+  }
+  .form_amount {
+    max-width: 810px;
+    margin: auto;
+  }
+  p.amount {
+    margin-left: 0px;
+  }
+  .radio_block {
+    margin-bottom: 98px;
+    padding: 0 10px 0 10px;
+  }
+  .radio_block div:nth-child(1) {
+    display: none;
+  }
+  .radio_block div label {
+    left: -27px;
+    padding-left: 17px;
+  }
+  .radio_block_line {
+    margin: 0 10px 0 10px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .panda_header {
+    height: 390px;
+    background-position: left -172px bottom;
+  }
+}
+@media screen and (max-width: 980px) {
+  .panda_header {
+    height: 335px;
+  }
+  .main_donate {
+    padding: 30px 20px 46px 20px;
+  }
+  .main_donate h2 {
+    margin: 0 0px 19px 0;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .main_donate p {
+    margin-bottom: 30px;
+  }
+  .main_donate h3 {
+    margin: 0;
+    margin-bottom: 29px;
+  }
+  .main_donate .pick_and_feed {
+    padding: 30px 0px 31px 0px;
+  }
+  .main_donate .pick_and_feed h2 {
+    margin: 0px 0px 21px 0px;
+  }
+  .main_donate .pick_and_feed h3 {
+    margin: 0px 35px 49px 35px;
+    text-align: center;
+  }
+  .main_donate .pick_and_feed .food_per_animal {
+    margin-bottom: 42px;
+    padding: 0 20px;
+  }
+  p.amount {
+    margin: 0px 0px 4px 10px;
+  }
+  .radio_block {
+    margin-bottom: 98px;
+    padding: 0 35px 0 35px;
+  }
+  .radio_block div:nth-child(2) {
+    display: none;
+  }
+  .radio_block div:nth-child(3) {
+    display: none;
+  }
+  .radio_block div label {
+    left: -27px;
+    padding-left: 8px;
+  }
+  .radio_block_line {
+    margin: 0 35px 0 35px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .panda_header {
+    height: 369px;
+    background: url(../../assets/images/donate_panda_bg_tablet.jpg) center bottom no-repeat;
+  }
+  #another_amount {
+    margin-bottom: 31px;
+    width: 180px;
+    height: 42px;
+    padding-left: 5px;
+  }
+  #dollar_sign {
+    left: 219px;
+    top: 9px;
+    font-size: 22px;
+  }
+  .radio_period_select {
+    padding-right: 19px;
+    margin-bottom: 29px;
+    gap: 50px;
+  }
+  .radio_period_select label {
+    padding-left: 11px;
+  }
+  #feed_btn {
+    margin-bottom: 30px;
+    margin-left: 2px;
+  }
+  p.share {
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .panda_header {
+    background-size: cover;
+    height: 69vw;
+  }
+  .main_donate {
+    padding: 31px 10px 21px 10px;
+  }
+  .main_donate p {
+    line-height: 138%;
+    margin-bottom: 30px;
+  }
+  .main_donate h3 {
+    margin: 0;
+    margin-bottom: 29px;
+    font-size: 24px;
+  }
+  .main_donate .pick_and_feed {
+    padding: 20px 0px 21px 0px;
+  }
+  .main_donate .pick_and_feed h2 {
+    margin: 0px 0px 9px 0px;
+    font-size: 24px;
+  }
+  .main_donate .pick_and_feed h3 {
+    margin: 0px 2px 11px 2px;
+    font-size: 16px;
+    line-height: 135%;
+  }
+  .main_donate .pick_and_feed .food_per_animal {
+    margin-bottom: 4px;
+    justify-content: center;
+    gap: 4px;
+    align-items: flex-start;
+    padding: 0 1px;
+  }
+  .main_donate .pick_and_feed .food_per_animal div {
+    margin: 60px 0px 0px 0px;
+  }
+  .main_donate .pick_and_feed .food_per_animal div h2 {
+    margin-bottom: 7px;
+    font-size: 40px;
+  }
+  .main_donate .pick_and_feed .food_per_animal div p {
+    font-size: 9px;
+  }
+  .main_donate .pick_and_feed .food_per_animal img:nth-child(2) {
+    margin-top: 73px;
+    margin-right: 31px;
+    width: 9px;
+  }
+  .main_donate .pick_and_feed .food_per_animal img:nth-child(3) {
+    max-width: 160px;
+    margin-right: 0px;
+  }
+  p.amount {
+    margin: 0px 0px 6px 1px;
+  }
+  .radio_block {
+    height: 14px;
+    margin-bottom: 49px;
+    padding: 0 17px 0 17px;
+  }
+  .radio_block div label {
+    width: 40px;
+    height: 50px;
+    left: -16px;
+    top: -27px;
+    padding-left: 7px;
+    padding-top: 43px;
+    font-size: 13px;
+  }
+  .radio_block div label span {
+    font-size: 11px;
+  }
+  .radio_block_line {
+    margin: 0 17px 0 17px;
+    top: 8px;
+  }
+  input.radio_amount {
+    width: 6px;
+    height: 6px;
+  }
+  input.radio_amount::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 1px solid #FE9013;
+    top: -3px;
+    left: -3px;
+  }
+  input.radio_amount:checked::before {
+    transform: scale(1);
+  }
+  input.radio_amount:focus {
+    outline: 1px solid #FE9013;
+    outline-offset: max(6px, 0.15em);
+  }
+  #another_amount {
+    margin-bottom: 25px;
+  }
+  .radio_period_select {
+    padding-right: 21px;
+    margin-bottom: 26px;
+  }
+  #feed_btn {
+    max-width: 298px;
+    width: 100%;
+    margin-left: 0px;
+    padding-top: 3px;
+  }
+  p.share {
+    font-size: 15.9px;
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .panda_header {
+    background: url(../../assets/images/donate_panda_bg_mobile.jpg) center bottom no-repeat;
+  }
+  .main_donate .pick_and_feed .food_per_animal img:nth-child(2) {
+    margin-right: auto;
+  }
 }/*# sourceMappingURL=style.css.map */
